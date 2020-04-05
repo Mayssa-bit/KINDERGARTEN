@@ -8,6 +8,8 @@ package tn.esprit.spring.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,6 +24,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -57,7 +60,18 @@ public class Schooladmins implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "email")
     private String email;
-    
+    @Column(name="LOGO_E")
+    String logoE;
+    @Column(name="NUM_E")
+    Float numE;
+    @Column(name="DATECREA_E")
+    Date dateCreaE;
+    @Column(name="TARIF_E")
+    String tarifE;
+    @OneToOne
+    private Directeurs directeurs; 
+    @ManyToOne
+    Evenements evenement;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "schooladminId", fetch= FetchType.EAGER)
     @JsonIgnore
     private Collection<Classes> classesCollection;
@@ -73,8 +87,39 @@ public class Schooladmins implements Serializable {
         this.id = id;
         this.email = email;
     }
+    
+    
 
-    public Integer getId() {
+    public Schooladmins(@Size(max = 65535) String name, Integer description,
+			@NotNull @Size(min = 1, max = 65535) String email, String logoE, Float numE, Date dateCreaE, String tarifE,
+			Collection<Classes> classesCollection) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.email = email;
+		this.logoE = logoE;
+		this.numE = numE;
+		this.dateCreaE = dateCreaE;
+		this.tarifE = tarifE;
+		this.classesCollection = classesCollection;
+	}
+
+	public Schooladmins(Integer id, @Size(max = 65535) String name, Integer description,
+			@NotNull @Size(min = 1, max = 65535) String email, String logoE, Float numE, Date dateCreaE, String tarifE,
+			Collection<Classes> classesCollection) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.email = email;
+		this.logoE = logoE;
+		this.numE = numE;
+		this.dateCreaE = dateCreaE;
+		this.tarifE = tarifE;
+		this.classesCollection = classesCollection;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -105,6 +150,42 @@ public class Schooladmins implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public String getLogoE() {
+		return logoE;
+	}
+
+	public void setLogoE(String logoE) {
+		this.logoE = logoE;
+	}
+
+	public Float getNumE() {
+		return numE;
+	}
+
+	public void setNumE(Float numE) {
+		this.numE = numE;
+	}
+
+	public Date getDateCreaE() {
+		return dateCreaE;
+	}
+
+	public void setDateCreaE(Date dateCreaE) {
+		this.dateCreaE = dateCreaE;
+	}
+
+	public String getTarifE() {
+		return tarifE;
+	}
+
+	public void setTarifE(String tarifE) {
+		this.tarifE = tarifE;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
    
 
@@ -116,28 +197,36 @@ public class Schooladmins implements Serializable {
     public void setClassesCollection(Collection<Classes> classesCollection) {
         this.classesCollection = classesCollection;
     }
-
+  
+    
+    
     @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Schooladmins)) {
-            return false;
-        }
-        Schooladmins other = (Schooladmins) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Schooladmins other = (Schooladmins) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
 
-    @Override
+	@Override
     public String toString() {
         return "com.Esprit.KinderGarten.model.Schooladmins[ id=" + id + " ]";
     }

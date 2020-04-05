@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,6 +42,9 @@ public class Evenements implements Serializable {
 	Integer nbPlace;
 	@Column(name="STATUT_E")
 	String statutE="Disponible";
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="evenement")
+	 private Set<Schooladmins> Schooladmins;
+
 	
 	@ManyToMany(mappedBy="evenements", cascade = CascadeType.ALL)
 	private Set<Participants> participants;
