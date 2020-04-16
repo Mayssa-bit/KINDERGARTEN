@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.esprit.spring.entity.Bus;
-import tn.esprit.spring.entity.Inscrits;
-import tn.esprit.spring.service.InscritsService;
+import tn.esprit.spring.Models.Inscrits;
+import tn.esprit.spring.Services.InscritsService;
+
+
 
 @RestController
 public class InscritsRestController {

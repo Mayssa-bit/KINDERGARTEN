@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.esprit.spring.entity.Activités;
-import tn.esprit.spring.entity.Bus;
-import tn.esprit.spring.entity.User;
-import tn.esprit.spring.service.BusService;
+import tn.esprit.spring.Models.Bus;
+import tn.esprit.spring.Services.BusService;
+
+
 
 
 
