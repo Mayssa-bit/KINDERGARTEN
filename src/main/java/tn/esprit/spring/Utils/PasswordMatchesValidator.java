@@ -13,7 +13,7 @@ import tn.esprit.spring.DTO.UserDTO;
 
 
 
-class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
+public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
 
     @Override
     public void initialize(PasswordMatches constraintAnnotation) {

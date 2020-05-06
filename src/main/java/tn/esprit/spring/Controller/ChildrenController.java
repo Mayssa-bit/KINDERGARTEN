@@ -13,7 +13,7 @@ import tn.esprit.spring.Models.Children;
 import tn.esprit.spring.Models.Schooladmins;
 import tn.esprit.spring.Repository.ChildrenRepositorie;
 import tn.esprit.spring.Repository.SchooladminRepository;
-import tn.esprit.spring.Services.MyUserDetailService;
+import tn.esprit.spring.Security.MyUserDetailsService;
 import tn.esprit.spring.Services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ChildrenController {
     @Autowired
-    MyUserDetailService userDetailsService;
+    MyUserDetailsService userDetailsService;
     @Autowired
     SchooladminRepository repo;
     @Autowired UserService service;
@@ -54,7 +54,7 @@ public class ChildrenController {
        Schooladmins admin = repo.findByEmail(userDetailsService.userCt.getEmail());
        Children child = null;
        
-       child = service.CreateNewChild(dto);
+      // child = service.CreateNewChild(dto);
        model.addAttribute("school",admin);
         return "/accueilSchool";
     }

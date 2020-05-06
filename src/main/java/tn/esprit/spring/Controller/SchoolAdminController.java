@@ -13,7 +13,7 @@ import tn.esprit.spring.Repository.ChildrenRepositorie;
 import tn.esprit.spring.Repository.ParentChildrenRepo;
 import tn.esprit.spring.Repository.ParentRepo;
 import tn.esprit.spring.Repository.SchooladminRepository;
-import tn.esprit.spring.Services.MyUserDetailService;
+import tn.esprit.spring.Security.MyUserDetailsService;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -36,7 +36,7 @@ public class SchoolAdminController {
     @Autowired
     SchooladminRepository repo;
     @Autowired
-    MyUserDetailService userDetailsService;
+    MyUserDetailsService userDetailsService;
     @Autowired
 	 ChildrenRepositorie repochild;
     @Autowired
@@ -46,7 +46,7 @@ public class SchoolAdminController {
 	 ParentChildrenRepo repochildParnt;
     
 
-	    @ApiOperation(value = "Welcome page",response = Iterable.class)
+	 /*   @ApiOperation(value = "Welcome page",response = Iterable.class)
     @GetMapping("/accueilSchool")
     private String accueil(Model model,Authentication auth ){
         
@@ -72,6 +72,6 @@ public class SchoolAdminController {
         }
         
       return "";
-    }
+    }*/
     
 }

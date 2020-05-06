@@ -50,8 +50,8 @@ public class Address implements Serializable {
     private String rue;
     @Column(name = "numero")
     private Integer numero;
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
-    private Users users;
+   // @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
+   // private Users users;
 
     public Address() {
     }
@@ -100,13 +100,13 @@ public class Address implements Serializable {
         this.numero = numero;
     }
 
-    public Users getUsers() {
-        return users;
-    }
+  //  public Users getUsers() {
+   //     return users;
+   // }
 
-    public void setUsers(Users users) {
-        this.users = users;
-    }
+   // public void setUsers(Users users) {
+  //      this.users = users;
+   // }
 
     @Override
     public int hashCode() {

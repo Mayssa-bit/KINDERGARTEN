@@ -40,7 +40,7 @@ import tn.esprit.spring.Models.Admins;
 import tn.esprit.spring.Models.Schooladmins;
 import tn.esprit.spring.Repository.AdminRepository;
 import tn.esprit.spring.Repository.SchooladminRepository;
-import tn.esprit.spring.Services.MyUserDetailService;
+import tn.esprit.spring.Security.MyUserDetailsService;
 import tn.esprit.spring.Services.UserService;
 
 @Controller
@@ -53,7 +53,7 @@ public class AdminController {
 	AdminRepository repoad;
 	
 	 @Autowired
-	 MyUserDetailService userDetailsService;
+	 MyUserDetailsService userDetailsService;
 	 
 	 @Autowired
 	 SchooladminRepository repo;
@@ -93,7 +93,7 @@ public class AdminController {
 	       int ad ;
 	       Schooladmins admin = repo.findByEmail(userDetailsService.userCt.getEmail());
 	   
-	       ad = serviceUser.CreateNewAdmin(dto);
+	   //    ad = serviceUser.CreateNewAdmin(dto);
 	     
 	       model.addAttribute("school",admin);
 	        return "accueillAdmin";

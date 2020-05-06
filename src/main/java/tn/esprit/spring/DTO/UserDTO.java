@@ -11,8 +11,10 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
 import tn.esprit.spring.Utils.PasswordMatches;
 import tn.esprit.spring.Utils.ValidEmail;
+import tn.esprit.spring.Utils.ValidPassword;
 
 
 
@@ -20,112 +22,94 @@ import tn.esprit.spring.Utils.ValidEmail;
 @PasswordMatches
 public class UserDTO {
     
-    @NotNull
-    @NotEmpty
-    private String name;
-    
-    @NotNull
-    @NotEmpty
-    private String username;
-    
-    @ValidEmail
-    @NotNull
-    @NotEmpty
-    private String email;
-    
-    @NotNull
-    @NotEmpty
-    
-    private String password;
-    private String matchingPassword;
-   
-    @NotNull
-    @NotEmpty
-    private String ville;
-    
-    @NotNull
-    
-    private Integer codePostale;
   
-    @NotNull
-    @NotEmpty    
-    private String rue;
-    
-    @NotNull
-    
-    private Integer numero;
+	 @NotNull
+	    @Size(min = 1, message = "{Size.userDto.firstName}")
+	    private String firstName;
 
-    public String getName() {
-        return name;
-    }
+	    @NotNull
+	    @Size(min = 1, message = "{Size.userDto.lastName}")
+	    private String lastName;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getUsername() {
-        return username;
-    }
+	    @ValidPassword
+	    private String password;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	    @NotNull
+	    @Size(min = 1)
+	    private String matchingPassword;
 
-    public String getPassword() {
-        return password;
-    }
+	    @ValidEmail
+	    @NotNull
+	    @Size(min = 1, message = "{Size.userDto.email}")
+	    private String email;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	    private boolean isUsing2FA;
 
-    public String getEmail() {
-        return email;
-    }
+	    public String getEmail() {
+	        return email;
+	    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	    public void setEmail(final String email) {
+	        this.email = email;
+	    }
 
-    public String getMatchingPassword() {
-        return matchingPassword;
-    }
+	    private Integer role;
 
-    public void setMatchingPassword(String matchingPassword) {
-        this.matchingPassword = matchingPassword;
-    }
+	    public Integer getRole() {
+	        return role;
+	    }
 
-    public String getVille() {
-        return ville;
-    }
+	    public void setRole(final Integer role) {
+	        this.role = role;
+	    }
 
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
+	    public String getFirstName() {
+	        return firstName;
+	    }
 
-    public Integer getCodePostale() {
-        return codePostale;
-    }
+	    public void setFirstName(final String firstName) {
+	        this.firstName = firstName;
+	    }
 
-    public void setCodePostale(Integer codePostale) {
-        this.codePostale = codePostale;
-    }
+	    public String getLastName() {
+	        return lastName;
+	    }
 
-    public String getRue() {
-        return rue;
-    }
+	    public void setLastName(final String lastName) {
+	        this.lastName = lastName;
+	    }
 
-    public void setRue(String rue) {
-        this.rue = rue;
-    }
+	    public String getPassword() {
+	        return password;
+	    }
 
-    public Integer getNumero() {
-        return numero;
-    }
+	    public void setPassword(final String password) {
+	        this.password = password;
+	    }
 
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
+	    public String getMatchingPassword() {
+	        return matchingPassword;
+	    }
+
+	    public void setMatchingPassword(final String matchingPassword) {
+	        this.matchingPassword = matchingPassword;
+	    }
+
+	    public boolean isUsing2FA() {
+	        return isUsing2FA;
+	    }
+
+	    public void setUsing2FA(boolean isUsing2FA) {
+	        this.isUsing2FA = isUsing2FA;
+	    }
+
+	    @Override
+	    public String toString() {
+	        final StringBuilder builder = new StringBuilder();
+	        builder.append("UserDto [firstName=").append(firstName).append(", lastName=").append(lastName).append(", password=").append(password).append(", matchingPassword=").append(matchingPassword).append(", email=").append(email).append(", isUsing2FA=")
+	                .append(isUsing2FA).append(", role=").append(role).append("]");
+	        return builder.toString();
+	    }
     
 
     

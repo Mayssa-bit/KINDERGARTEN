@@ -12,7 +12,7 @@ import tn.esprit.spring.Models.Classes;
 import tn.esprit.spring.Models.Schooladmins;
 import tn.esprit.spring.Repository.ClassesRepository;
 import tn.esprit.spring.Repository.SchooladminRepository;
-import tn.esprit.spring.Services.MyUserDetailService;
+import tn.esprit.spring.Security.MyUserDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class ClasseController {
     @Autowired
-    MyUserDetailService userDetailsService;
+    MyUserDetailsService userDetailsService;
     
     @Autowired
     SchooladminRepository repo;

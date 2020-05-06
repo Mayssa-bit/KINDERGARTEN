@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiResponses;
 import tn.esprit.spring.Models.Classes;
 import tn.esprit.spring.Repository.ClassesRepository;
 import tn.esprit.spring.Repository.SchooladminRepository;
-import tn.esprit.spring.Services.MyUserDetailService;
+import tn.esprit.spring.Security.MyUserDetailsService;
 
 import java.io.InputStream;
 import java.util.List;
@@ -44,7 +44,7 @@ public class ApiRestController {
     @Autowired
     ClassesRepository repoClasse;
     @Autowired
-    MyUserDetailService userDetailsService;
+    MyUserDetailsService userDetailsService;
     
     @Autowired
     SchooladminRepository schoolRepo;

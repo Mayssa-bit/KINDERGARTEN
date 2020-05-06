@@ -23,7 +23,7 @@ import tn.esprit.spring.Models.Schooladmins;
 import tn.esprit.spring.Repository.ChildrenRepositorie;
 import tn.esprit.spring.Repository.ParentChildrenRepo;
 import tn.esprit.spring.Repository.SchooladminRepository;
-import tn.esprit.spring.Services.MyUserDetailService;
+import tn.esprit.spring.Security.MyUserDetailsService;
 import tn.esprit.spring.Services.UserService;
 
 @Controller
@@ -42,7 +42,7 @@ public class ParentController {
 	 SchooladminRepository repo;
 
 	 @Autowired
-	    MyUserDetailService userDetailsService;
+	    MyUserDetailsService userDetailsService;
 	 
 	 @ApiOperation(value = "register form for parent",response = Iterable.class)
 
@@ -66,7 +66,7 @@ public class ParentController {
 	       Parents parent = null;
 	       Schooladmins admin = repo.findByEmail(userDetailsService.userCt.getEmail());
 	   
-	       parent = service.CreateNewParent(dto);
+	   //    parent = service.CreateNewParent(dto);
 	     
 	       model.addAttribute("school",admin);
 	        return "redirect:/login";

@@ -17,6 +17,17 @@
 	<properties>
 		<java.version>1.8</java.version>
                 <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+                <java-version>1.8</java-version>
+
+		<javax.servlet.jsp-api.version>2.3.2-b01</javax.servlet.jsp-api.version>
+        <javax.el.version>2.2</javax.el.version>
+		<jstl.version>1.2</jstl.version>
+		<guava.version>20.0</guava.version>
+		<passay.version>1.0</passay.version>
+        <logstash-logback-encoder.version>4.8</logstash-logback-encoder.version>
+        <aerogear.version>1.0.0</aerogear.version>
+        <uap-java.version>1.4.0</uap-java.version>
+        <geoip2.version>2.12.0</geoip2.version>
 	</properties>
 
 	<dependencies>
@@ -29,6 +40,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
@@ -105,6 +118,12 @@
                     <artifactId>jquery</artifactId>
                     <version>3.2.1</version>
                 </dependency>
+             <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+        </dependency>
+            
+            
                 
 	 <dependency>
 	  <groupId>org.eclipse.persistence</groupId>
@@ -157,6 +176,17 @@
 	  <version>SNAPSHOT</version>
 	 </dependency>
         
+        <dependency>
+			<groupId>org.passay</groupId>
+			<artifactId>passay</artifactId>
+			<version>${passay.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.aerogear</groupId>
+			<artifactId>aerogear-otp-java</artifactId>
+			<version>${aerogear.version}</version>
+			<scope>compile</scope>
+		</dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

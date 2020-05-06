@@ -59,7 +59,8 @@ public class PasswordController {
 			
 
 			Users user = optional;
-			user.setResetToken(UUID.randomUUID().toString());
+            final String token = UUID.randomUUID().toString();
+            userService.createPasswordResetTokenForUser(user, token); 
 
 			
 			userService.save(user);
@@ -72,7 +73,7 @@ public class PasswordController {
 			passwordResetEmail.setTo(user.getEmail());
 			passwordResetEmail.setSubject("Password Reset Request");
 			passwordResetEmail.setText("To reset your password, click the link below:\n" + appUrl
-					+ "/reset?token=" + user.getResetToken());
+					+ "/reset?token=" + token);
 			
 			emailService.sendEmail(passwordResetEmail);
 
@@ -86,7 +87,7 @@ public class PasswordController {
 	}
 
 	
-	@RequestMapping(value = "/reset", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/reset", method = RequestMethod.GET)
 	public ModelAndView displayResetPasswordPage(ModelAndView modelAndView, @RequestParam("token") String token) {
 		
 		Users user = userService.findUserByResetToken(token);
@@ -136,7 +137,7 @@ public class PasswordController {
 		
 		return modelAndView;
    }
-   
+   */
 
 	@ExceptionHandler(MissingServletRequestParameterException.class)
 	public ModelAndView handleMissingParams(MissingServletRequestParameterException ex) {
